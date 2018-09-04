@@ -31,4 +31,12 @@ class TestChanger < MiniTest::Test
   def test_change_large_complex_amount
     assert_equal [25, 25, 10, 5, 1, 1, 1], Changer.make_change(68)
   end
+
+  def test_change_loonie_amount
+    assert_equal [100, 25, 25], Changer.make_change(150)
+  end
+
+  def test_change_toonie_plus_penny_amount
+    assert_equal [200, 200, 100, 1], Changer.make_change(501)
+  end
 end
